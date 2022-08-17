@@ -1,3 +1,4 @@
+
 const express = require('express');
 const { ObjectId } = require('mongodb');
 
@@ -18,11 +19,36 @@ const createRouter = function (collection) {
             });
     });
 
-    //Show
-
     //Create
-
+    router.post('/', (req, res) => {
+        const newBooking = req.body;
+        collection
+            .insertOne(newBooking)
+            .then( (result) => {
+                console.log(result)
+                res.json(result)
+             })
+            .catch((err) => {
+                console.error(err);
+                res.status(500);
+                res.json({ status: 500, error: err });
+        });
+    });
+    
     // Delete
+    router.delete('/:id', (req, res)=> {
+        const id = req.params.id;
+        collection
+        .deleteOne({ _id: ObjectId(id)})
+        .then(result => {
+            res.json(result)
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500);
+            res.json({ status: 500, error: err });
+    });
+    })
 
     // update
 
