@@ -1,6 +1,22 @@
-const BookingsList = () => {
+import BookingItem from "./BookingItem";
+
+const BookingsList = ({bookings}) => {
+    
+    const bookingNodes = bookings.map((booking) => {
+        return(
+            <BookingItem 
+                name={booking.name}
+                email={booking.email}
+                date={booking.date}
+                checkedIn={booking.checkedIn}
+            />
+        )
+    })
+    
     return (
-        <h1>Guests List</h1>
+        <ul>
+            {bookingNodes}
+        </ul>
     )
 }
 

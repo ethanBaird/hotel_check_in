@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import BookingsList from "../components/BookingsList";
-import { getBookings } from '../Services/BookingsService';
+import { getBookings, postBookings } from '../Services/BookingsService';
 
 
 const BookingsContainer = () => {
@@ -10,10 +10,10 @@ const BookingsContainer = () => {
     useEffect(() => {
         getBookings()
             .then((allBookings)=> setBookings(allBookings) )
-    }, [] )
+    }, [] );
 
     return(
-        <BookingsList/>
+        <BookingsList bookings={bookings}/>
     )
 }
 
