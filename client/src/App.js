@@ -1,8 +1,8 @@
+import GuestsContainer from "./containers/BookingsContainer";
+
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <GuestsContainer/>
   );
 }
 
