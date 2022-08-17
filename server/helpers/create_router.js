@@ -22,7 +22,8 @@ const createRouter = function (collection) {
     //Create
     router.post('/', (req, res) => {
         const newBooking = req.body;
-        collection
+        if (newBooking.name && newBooking.email) {
+            collection
             .insertOne(newBooking)
             .then( (result) => {
                 console.log(result)
@@ -32,7 +33,10 @@ const createRouter = function (collection) {
                 console.error(err);
                 res.status(500);
                 res.json({ status: 500, error: err });
-        });
+        })
+        } else {
+            res.send('Error: missing name or email')
+        }
     });
     
     // Delete
