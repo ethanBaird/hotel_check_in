@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import BookingsForm from '../components/BookingsForm';
 import BookingsList from "../components/BookingsList";
-import { getBookings, postBookings } from '../Services/BookingsService';
+import { getBookings, postBookings, updateBooking } from '../Services/BookingsService';
 
 
 const BookingsContainer = () => {
@@ -25,10 +25,16 @@ const BookingsContainer = () => {
         setBookings(copyBookings)
     }
 
+    const checkIn = (index) => {
+        const copyBookings = [...bookings]
+        copyBookings[index].checkedIn = true
+        setBookings(copyBookings)
+    }
+
     return(
         <>
             <BookingsForm addBooking={addBooking}/>
-            <BookingsList bookings={bookings} removeBooking={removeBooking}/>
+            <BookingsList bookings={bookings} removeBooking={removeBooking} checkIn={checkIn}/>
         </>
     )
 }

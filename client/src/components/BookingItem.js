@@ -1,18 +1,24 @@
-import { deleteBooking } from "../Services/BookingsService"
+import { deleteBooking, updateBooking } from "../Services/BookingsService"
 
-const BookingItem = ({name, email, date, checkedIn, id, index, removeBooking}) => {
+const BookingItem = ({booking, name, email, date, checkedIn, id, index, removeBooking, checkIn}) => {
     
-    const handleClick = (event) => {
+    const handleDelete = (event) => {
         deleteBooking(id)
         removeBooking(index)
+    }
+    
+    const handleCheckIn = (event) => {
+        checkIn(index);
+        updateBooking(booking, id)
     }
 
     return(
         <li>
             <h2>{name} - {email}</h2>
             <p>Check In Date: {date}</p>
-            {checkedIn ? <p>Checked In</p> : null}
-            <button onClick={handleClick}>Delete</button>
+            {checkedIn ? <p>Checked In</p> : <button onClick={handleCheckIn}>Check In</button>}
+            
+            <button onClick={handleDelete}>Delete</button>
         </li>
     )
 }
