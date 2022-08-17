@@ -26,7 +26,7 @@ const createRouter = function (collection) {
             .insertOne(newBooking)
             .then( (result) => {
                 console.log(result)
-                res.json(result)
+                res.json(result.ops[0])
              })
             .catch((err) => {
                 console.error(err);

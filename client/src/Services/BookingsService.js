@@ -11,6 +11,7 @@ export const postBookings = (payload) => {
         body: JSON.stringify(payload),
         headers: { 'Content-Type': 'application/json' }
     })
+    .then(res => res.json())
 };
 
 export const deleteBooking = (id) => {
