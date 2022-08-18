@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import styled from 'styled-components';
 import BookingsForm from '../components/BookingsForm';
 import BookingsList from "../components/BookingsList";
 import { getBookings, postBookings, updateBooking } from '../Services/BookingsService';
@@ -33,11 +34,15 @@ const BookingsContainer = () => {
     }
 
     return(
-        <>
+        <Wrapper>
             <BookingsForm addBooking={addBooking}/>
             <BookingsList bookings={bookings} removeBooking={removeBooking} checkIn={checkIn}/>
-        </>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    display: flex;
+`
 
 export default BookingsContainer;

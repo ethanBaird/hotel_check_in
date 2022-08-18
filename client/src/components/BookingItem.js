@@ -39,9 +39,10 @@ const CheckedIn = styled.li`
     border: solid green 2px;
     border-radius: 5px;
     box-shadow: 0 0 8px green;
-    width: 30%;
+    
+    width: 40%;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     transition: 250ms;
 
     &:hover{
@@ -53,9 +54,10 @@ const CheckedOut = styled.li`
     border: solid red 2px;
     border-radius: 5px;
     box-shadow: 0 0 8px red;
-    width: 30%;
+    
+    width: 40%;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem;
     transition: 250ms;
 
     &:hover{

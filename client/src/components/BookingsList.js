@@ -29,9 +29,15 @@ const BookingsList = ({bookings, removeBooking, checkIn}) => {
 const Wrapper = styled.ul`
     list-style: none;
     padding: 1rem;
+    margin: 1rem;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: center;
+    background-color: whitesmoke;
+    border: solid black 2px;
+    border-radius: 5px;
+    box-shadow: 0 0 16px grey;
 `
 
 export default BookingsList;
