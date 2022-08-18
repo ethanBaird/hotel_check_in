@@ -1,4 +1,5 @@
 import BookingItem from "./BookingItem";
+import styled from "styled-components";
 
 const BookingsList = ({bookings, removeBooking, checkIn}) => {
     
@@ -19,10 +20,18 @@ const BookingsList = ({bookings, removeBooking, checkIn}) => {
     })
     
     return (
-        <ul>
+        <Wrapper>
             {bookingNodes}
-        </ul>
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.ul`
+    list-style: none;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+`
 
 export default BookingsList;

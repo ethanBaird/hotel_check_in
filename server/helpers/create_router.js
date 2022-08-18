@@ -21,10 +21,9 @@ const createRouter = function (collection) {
 
     //Create
     router.post('/', (req, res) => {
-        const newBooking = req.body;
-        if (newBooking.name && newBooking.email) {
-            collection
-            .insertOne(newBooking)
+        const newData = req.body;
+        collection
+            .insertOne(newData)
             .then( (result) => {
                 console.log(result)
                 res.json(result.ops[0])
@@ -34,9 +33,6 @@ const createRouter = function (collection) {
                 res.status(500);
                 res.json({ status: 500, error: err });
         })
-        } else {
-            res.send('Error: missing name or email')
-        }
     });
     
     // Delete
@@ -57,16 +53,12 @@ const createRouter = function (collection) {
     // update
     router.put('/:id', (req, res) => {
         const id = req.params.id;
-        const updatedBooking = {
-            name: req.body.name,
-            email: req.body.email,
-            date: req.body.date,
-            checkedIn: req.body.checkedIn
-        }
+        const updatedData = req.body;
+        delete updatedData._id;
         collection
             .updateOne(
                 { _id: ObjectId(id) },
-                { $set: updatedBooking }
+                { $set: updatedData }
             )
             .then( result => res.json(result))
             .catch((err) => {

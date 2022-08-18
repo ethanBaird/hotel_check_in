@@ -27,7 +27,8 @@ const BookingsContainer = () => {
 
     const checkIn = (index) => {
         const copyBookings = [...bookings]
-        copyBookings[index].checkedIn = true
+        const bookingToUpdate = copyBookings[index]
+        bookingToUpdate.checkedIn = !bookingToUpdate.checkedIn
         setBookings(copyBookings)
     }
 

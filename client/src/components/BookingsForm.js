@@ -1,4 +1,5 @@
 import { useState } from "react"
+import styled from "styled-components";
 import { postBookings } from "../Services/BookingsService";
 
 const BookingsForm = ({addBooking}) => {
@@ -16,7 +17,7 @@ const BookingsForm = ({addBooking}) => {
         setFormData(newFormData)
     }
 
-    const handleRadio = (event) => {
+    const handleCheck = (event) => {
         const newFormData = Object.assign({}, formData);
         newFormData.checkedIn = !newFormData.checkedIn
         setFormData(newFormData)
@@ -38,7 +39,7 @@ const BookingsForm = ({addBooking}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <h2>Booking Form</h2>
             <input type='text' name="name" placeholder="Enter name" value={formData.name} onChange={handleChange} required/>
 
@@ -48,11 +49,28 @@ const BookingsForm = ({addBooking}) => {
             <input type='date' name="date" value={formData.date} onChange={handleChange}/>
 
             <label htmlFor="checked-in">Checked In?</label>
-            <input type='checkbox' name="checkedIn" checked={formData.checkedIn} value={formData.checkedIn} onChange={handleRadio}/>
+            <input type='checkbox' name="checkedIn" checked={formData.checkedIn} value={formData.checkedIn} onChange={handleCheck}/>
 
             <button type="submit">Add Booking</button>
-        </form>
+        </Form>
     )
  }
+
+ const Form = styled.form`
+    background-color: whitesmoke;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    padding: 1rem;
+
+    h2 {
+        margin-top: 0;
+    }
+
+    input {
+        margin: 0.5rem;
+    }
+ `
 
  export default BookingsForm
