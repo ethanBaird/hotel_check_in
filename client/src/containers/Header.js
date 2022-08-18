@@ -10,7 +10,7 @@ const Header = () => {
 
 const Wrapper = styled.header`
     background-color: dodgerblue;
-    padding: 1rem;
+    padding: 1rem 2rem;
     
 `
 

@@ -11,7 +11,7 @@ db.bookings.insertMany([
     {
         name: 'Javier Gonzalez',
         email: 'javier@email.com',
-        date: "2022-11-13",
+        date: "2022-06-13",
         checkedIn: false
     }
 ]);
