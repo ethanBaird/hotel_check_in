@@ -31,9 +31,10 @@ const Wrapper = styled.ul`
     padding: 1rem;
     margin: 1rem;
     width: 75%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+
     background-color: whitesmoke;
     border: solid black 2px;
     border-radius: 5px;
