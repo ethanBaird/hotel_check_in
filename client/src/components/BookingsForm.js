@@ -40,7 +40,7 @@ const BookingsForm = ({addBooking}) => {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <h2>Booking Form</h2>
+            <h2>New Booking</h2>
             <input type='text' name="name" placeholder="Enter name" value={formData.name} onChange={handleChange} required/>
 
             <input type='text' name="email" placeholder="Enter email" value={formData.email} onChange={handleChange} required/>
@@ -54,13 +54,14 @@ const BookingsForm = ({addBooking}) => {
                 <label htmlFor="checked-in">Checked In:</label>
                 <input type='checkbox' name="checkedIn" checked={formData.checkedIn} value={formData.checkedIn} onChange={handleCheck}/>
             </Checkbox>
-
-            <button type="submit">Add Booking</button>
+            <ButtonWrapper>
+                <Button type="submit">Add Booking</Button>
+            </ButtonWrapper>
         </Form>
     )
  }
 
- const Form = styled.form`
+const Form = styled.form`
     background-color: whitesmoke;
     border: 2px solid black;
     border-radius: 5px;
@@ -68,6 +69,7 @@ const BookingsForm = ({addBooking}) => {
 
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 
     height: 250px;
     width: 25%;
@@ -81,9 +83,19 @@ const BookingsForm = ({addBooking}) => {
     input {
         margin: 0.5rem;
     }
- `
+`
 
- const Checkbox = styled.div`
+const Checkbox = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    label {
+        width: 40%;
+    }
+`
+
+const Date = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -93,14 +105,22 @@ const BookingsForm = ({addBooking}) => {
     }
  `
 
- const Date = styled.div`
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+const ButtonWrapper = styled.div`
+    text-align: center;
+`
 
-    label {
-        width: 40%;
+const Button = styled.button`
+    width: 50%;
+    margin: 3px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 0 4px grey;
+    transition: 350ms;
+
+    &:hover {
+        transform: scale(1.01);
+        background-color: white;
     }
- `
+`
 
  export default BookingsForm

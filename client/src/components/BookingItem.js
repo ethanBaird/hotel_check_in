@@ -19,6 +19,7 @@ const BookingItem = ({booking, name, email, date, checkedIn, id, index, removeBo
                 <CheckedIn>
                     <Name>{name}</Name>
                     <h3>{email}</h3>
+                    <p>Check In: {date}</p>
                     <Button onClick={handleCheckInOut}>Check Out</Button>
                     <Button onClick={handleDelete}>Delete</Button>
                 </CheckedIn>
@@ -26,6 +27,7 @@ const BookingItem = ({booking, name, email, date, checkedIn, id, index, removeBo
                 <CheckedOut>
                     <Name>{name}</Name>
                     <h3>{email}</h3>
+                    <p>Check In: {date}</p>
                     <Button onClick={handleCheckInOut}>Check In</Button>
                     <Button onClick={handleDelete}>Delete</Button>
                 </CheckedOut>
@@ -72,7 +74,12 @@ const Button = styled.button`
     margin: 3px;
     background-color: whitesmoke;
     border-radius: 5px;
-    box-shadow: 0 0 4px grey
+    box-shadow: 0 0 4px grey;
+
+    &:hover {
+        transform: scale(1.01);
+        background-color: white;
+    }
 `
 
 export default BookingItem

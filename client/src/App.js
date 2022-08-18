@@ -1,8 +1,12 @@
 import GuestsContainer from "./containers/BookingsContainer";
+import Header from "./containers/Header";
 
 function App() {
   return (
-    <GuestsContainer/>
+    <>
+      <Header/>  
+      <GuestsContainer/>
+    </>
   );
 }
 
